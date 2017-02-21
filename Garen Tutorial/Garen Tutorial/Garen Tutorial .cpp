@@ -71,9 +71,9 @@ void Combo()
 	{
 		Q->CastOnPlayer();
 	}
-	if (W->IsReady() && ComboW->Enabled() && player->IsValidTarget(t, W->Range()) && (player->HealthPercent() <= WHealth->GetFloat()) );
+	if (t != nullptr && W->IsReady() && ComboW->Enabled() && player->IsValidTarget(t, W->Range()) && (player->HealthPercent() <= WHealth->GetFloat()) );
 	{
-		W->CastOnPlayer();
+		//W->CastOnPlayer();
 	}
 	if (E->IsReady() && ComboE->Enabled() && player->IsValidTarget(t, E->Range()))
 	{
@@ -91,11 +91,11 @@ void Harass()
 	{
 		Q->CastOnPlayer();
 	}
-	if (W->IsReady() && HarassW->Enabled() && player->IsValidTarget(t, W->Range()) && (player->HealthPercent() <= WHealth->GetFloat()));
+	if (t != nullptr && W->IsReady() && HarassW->Enabled() && player->IsValidTarget(t, W->Range()) && (player->HealthPercent() <= WHealth->GetFloat()) && player->HasIncomingDamage());
 	{
-		W->CastOnPlayer();
+		//W->CastOnPlayer();
 	}
-	if (E->IsReady() && HarassE->Enabled() && player->IsValidTarget(t, E->Range()))
+	if (E->IsReady() && HarassE->Enabled() && player->IsValidTarget(t, E->Range()) && player->HasIncomingDamage())
 	{
 		E->CastOnPosition(GGame->CursorPosition());
 		//E->CastOnPlayer();
